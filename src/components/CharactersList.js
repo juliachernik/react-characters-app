@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function CharactersList() {
 
@@ -36,6 +37,7 @@ function CharactersList() {
                         <div className="character" key={index} >
                             <h2>{characterDetails.name}</h2>
                             <p>Weapon: {characterDetails.weapon}</p>
+                            <Link to={"/characters/" + characterDetails.id}>More Details</Link>
                         </div>
                     )
                 })}

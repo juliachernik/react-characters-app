@@ -14,8 +14,7 @@ function App() {
 
       <nav>
         <p>this is the header</p>
-        <NavLink to="/">Home </NavLink> |
-        <NavLink to="/my-character">My Character</NavLink>
+        <NavLink to="/">Home </NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
@@ -23,9 +22,11 @@ function App() {
 
       <Routes>
         <Route path='/' element={<CharactersList />} />
-        <Route path='/my-character' element={<CharacterDetails />} />
+        <Route path='/characters/:characterId' element={<CharacterDetails />} />
         <Route path='/about' element={<About /> } />
         <Route path='/contact' element={<Contact />} />
+
+
         
         <Route path="*" element={ <h2>404: sorry, that route does not exist</h2>} />
       </Routes>
