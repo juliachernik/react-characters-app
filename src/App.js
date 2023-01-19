@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
+import CharactersList from './components/CharactersList';
+import CharacterDetails from './components/CharacterDetails';
+import About from './components/About';
+import Contact from './components/Contact';
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <nav>
+        <p>this is the header</p>
+        <NavLink to="/">Home </NavLink> |
+        <NavLink to="/my-character">My Character</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </nav>
+
+
+      <Routes>
+        <Route path='/' element={<CharactersList />} />
+        <Route path='/my-character' element={<CharacterDetails />} />
+        <Route path='/about' element={<About /> } />
+        <Route path='/contact' element={<Contact />} />
+        
+        <Route path="*" element={ <h2>404: sorry, that route does not exist</h2>} />
+      </Routes>
+
+      <p>this is the footer</p>
+      
+
     </div>
   );
 }
